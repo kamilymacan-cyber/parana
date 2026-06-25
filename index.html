@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu Virtual: A Diáspora Europeia e Asiática</title>
+    <style>
+        /* Estilos básicos para o protótipo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-style: italic;
+            color: #bdc3c7;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .intro {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        .grid-exposicoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-conteudo {
+            padding: 1.5rem;
+        }
+        .card-conteudo h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .btn-entrar {
+            display: inline-block;
+            background-color: #e67e22;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .btn-entrar:hover {
+            background-color: #d35400;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
 
+    <header>
+        <h1>Memórias da Diáspora</h1>
+        <p>Grupo 2: A Imigração Europeia e Asiática no Século XIX e XX</p>
+    </header>
+
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#exposicoes">Pavilhões</a>
+        <a href="#sobre">Sobre o Projeto</a>
+    </nav>
+
+    <div class="container" id="home">
+        
+        <section class="intro">
+            <h2>Bem-vindo ao Museu Interativo</h2>
+            <p>Explore as trajetórias, os desafios e as contribuições dos povos que cruzaram oceanos no final do século XIX e início do século XX. Motivados por crises econômicas, guerras ou pela busca de novas oportunidades, milhões de imigrantes europeus e asiáticos transformaram a cultura, a economia e a demografia de suas novas nações.</p>
+        </section>
+
+        <h2 id="exposicoes" style="margin-top: 3rem; color: #2c3e50;">Pavilhões de Exposição</h2>
+        
+        <div class="grid-exposicoes">
+            
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Italiana</h3>
+                    <p>Conheça a história dos milhares de italianos que deixaram o Vêneto e outras regiões para trabalhar nas lavouras de café e nas indústrias em expansão.</p>
+                    <a href="#" class="btn-entrar">Explorar Pavilhão</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Alemã</h3>
+                    <p>Descubra o estabelecimento das colônias agrícolas no sul do país, a preservação de tradições, a arquitetura enxaimel e o impacto cultural.</p>
+                    <a href="#" class="btn-entrar">Explorar Pavilhão</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Eslava (Poloneses e Ucranianos)</h3>
+                    <p>A saga dos imigrantes da Europa Oriental que colonizaram terras desafiadoras, trazendo consigo uma rica herança religiosa, musical e agrícola.</p>
+                    <a href="#" class="btn-entrar">Explorar Pavilhão</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Japonesa</h3>
+                    <p>A partir do navio Kasato Maru em 1908, veja como a comunidade japonesa superou barreiras linguísticas e revolucionou a agricultura local.</p>
+                    <a href="#" class="btn-entrar">Explorar Pavilhão</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <footer id="sobre">
+        <p>&copy; 2026 - Museu Virtual da Diáspora. Desenvolvido para fins educacionais.</p>
+    </footer>
+
+</body>
+</html>
