@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu Virtual: A Diáspora Europeia e Asiática</title>
+    <style>
+        /* ==========================================================================
+           1. VARIÁVEIS E CORES (Tons de Rosa e Detalhes Lilás)
+           ========================================================================== */
+        :root {
+            --bg-principal: #fff0f5; /* Lavender Blush (Rosa bem claro) */
+            --bg-card: #ffe4e1;      /* Misty Rose */
+            --rosa-escuro: #db7093;  /* Pale Violet Red */
+            --rosa-medio: #ffb6c1;   /* Light Pink */
+            --lilas-sutil: #e6e6fa;  /* Lavender (Lilás claro) */
+            --lilas-detalhes: #ba55d3;/* Medium Orchid (Lilás para elementos) */
+            --texto-escuro: #4a2834;  /* Castanho arroxeado escuro para boa leitura */
+        }
+
+        /* Animação suave de entrada para a página */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================================================
+           2. ESTILOS GERAIS E TIPOGRAFIA (Comic Sans MS)
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-principal);
+            color: var(--texto-escuro);
+            
+            /* 3. FUNDO COM ARAUCÁRIAS E GRALHAS-AZUIS (ESTILIZADAS EM LILÁS)
+               Utilizando SVG inline embutido via Data URI para garantir renderização idêntica e independente de arquivos externos.
+               O padrão desenha uma silhueta de pinheiro (araucária) e pássaros voando (gralhas) em tons lilás.
+            */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%23dda0dd' fill-opacity='0.15'%3E%3C!-- Araucária 1 --%3E%3Cpath d='M30 90h4v20h-4zm-12-10h28v-4H18zm3-10h22v-4H21zm4-10h14v-4H25zm2-10h10v-4H27z'/%3E%3Cpath d='M15 75c3-5 12-5 15 0m0-10c3-5 9-5 12 0' stroke='%23dda0dd' stroke-width='2' fill='none' stroke-opacity='0.15'/%3E%3C!-- Gralha Lilás --%3E%3Cpath d='M80 30c5-2 12-1 15 3-2-5-7-7-12-5-4 2-5 5-3 2zm8 4c2 2 5 1 7-2-3 1-5 1-7 2z'/%3E%3C/g%3E%3Cg fill='%23ba55d3' fill-opacity='0.08'%3E%3C!-- Araucária 2 --%3E%3Cpath d='M90 40h3v15h-3zm-9-7h21v-3H81zm2-7h17v-3H83zm3-7h11v-3H86z'/%3E%3C!-- Gralha Lilás 2 --%3E%3Cpath d='M25 15c4-1 9 0 11 3-2-4-5-5-9-4-3 1-4 4-2 1z'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        header {
+            background-color: var(--rosa-escuro);
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            border-bottom: 5px solid var(--lilas-detalhes);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            text-shadow: 2px 2px 0px var(--lilas-detalhes);
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+            color: var(--lilas-sutil);
+        }
+
+        nav {
+            background-color: #fca3b7;
+            padding: 0.75rem;
+            text-align: center;
+            border-bottom: 2px solid var(--rosa-escuro);
+        }
+
+        nav a {
+            color: var(--texto-escuro);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--rosa-escuro);
+            color: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .intro {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 3px solid var(--rosa-medio);
+            box-shadow: 0 6px 12px rgba(219, 112, 147, 0.1);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro h2 {
+            color: var(--rosa-escuro);
+            margin-top: 0;
+        }
+
+        /* Seção de Exposições */
+        .secao-titulo {
+            text-align: center;
+            color: var(--rosa-escuro);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-shadow: 1px 1px 0px #fff;
+        }
+
+        .grid-exposicoes {
+            display: block; /* Compatibilidade e fluxo natural */
+        }
+
+        .card {
+            background: rgba(255, 240, 245, 0.85);
+            border: 3px solid var(--rosa-medio);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(186, 85, 211, 0.2);
+            border-color: var(--lilas-detalhes);
+        }
+
+        .card-conteudo {
+            padding: 1.8rem;
+        }
+
+        .card-conteudo h3 {
+            margin-top: 0;
+            color: var(--rosa-escuro);
+            font-size: 1.4rem;
+            border-bottom: 2px dashed var(--rosa-medio);
+            padding-bottom: 0.5rem;
+        }
+
+        /* ==========================================================================
+           4. BOTÕES ESTILIZADOS E CATEGORIZADOS PARA CADA IMIGRAÇÃO
+           ========================================================================== */
+        .btn-categoria {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            margin-top: 1rem;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Efeito de clique/hover geral nos botões */
+        .btn-categoria:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Botões customizados por categoria/país */
+        .btn-italiano {
+            background-color: #db7093; /* Rosa Escuro Sólido */
+            border-bottom: 4px solid #b0486c;
+        }
+        .btn-italiano:hover { background-color: #c75b7e; }
+
+        .btn-alemao {
+            background-color: #ba55d3; /* Lilás Médio */
+            border-bottom: 4px solid #943da9;
+        }
+        .btn-alemao:hover { background-color: #a544be; }
+
+        .btn-eslavo {
+            background-color: #ff69b4; /* Hot Pink */
+            border-bottom: 4px solid #d1498b;
+        }
+        .btn-eslavo:hover { background-color: #f0529d; }
+
+        .btn-japones {
+            background-color: #ff85a2; /* Rosa Pastel Vibrante */
+            border-bottom: 4px solid #d95d7a;
+        }
+        .btn-japones:hover { background-color: #f77290; }
+
+
+        footer {
+            background-color: var(--rosa-escuro);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--lilas-detalhes);
+        }
+
+        /* ==========================================================================
+           5. ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS (TABLETS E CELULARES)
+           ========================================================================== */
+        
+        /* Regras para Tablets (Telas até 768px) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .container {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+            .card-conteudo {
+                padding: 1.4rem;
+            }
+            nav a {
+                margin: 0 6px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Regras para Celulares (Telas até 480px) */
+        @media (max-width: 480px) {
+            header {
+                padding: 1.5rem 0.5rem;
+            }
+            header h1 {
+                font-size: 1.6rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav {
+                padding: 0.5rem 0;
+            }
+            nav a {
+                display: inline-block;
+                margin: 4px;
+                font-size: 0.9rem;
+                padding: 4px 8px;
+            }
+            .intro {
+                padding: 1.2rem;
+                border-radius: 12px;
+            }
+            .secao-titulo {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+            .card {
+                border-radius: 15px;
+                margin-bottom: 1.5rem;
+            }
+            .card-conteudo h3 {
+                font-size: 1.2rem;
+            }
+            .btn-categoria {
+                display: block;
+                width: 100%;
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Memórias da Diáspora</h1>
+        <p>Grupo 2: A Imigração Europeia e Asiática no Século XIX e XX</p>
+    </header>
+
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#exposicoes">Pavilhões</a>
+        <a href="#sobre">Sobre o Projeto</a>
+    </nav>
+
+    <div class="container" id="home">
+        
+        <section class="intro">
+            <h2>Bem-vindo ao Museu Interativo</h2>
+            <p>Explore as trajetórias, os desafios e as contribuições dos povos que cruzaram oceanos no final do século XIX e início do século XX. Motivados por crises econômicas, guerras ou pela busca de novas oportunidades, milhões de imigrantes europeus e asiáticos transformaram a cultura, a economia e a demografia de suas novas nações.</p>
+        </section>
+
+        <h2 id="exposicoes" class="secao-titulo">Pavilhões de Exposição</h2>
+        
+        <div class="grid-exposicoes">
+            
+            <!-- Pavilhão Italiano -->
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Italiana</h3>
+                    <p>Conheça a história dos milhares de italianos que deixaram o Vêneto e outras regiões para trabalhar nas lavouras de café e nas indústrias em expansão.</p>
+                    <a href="#" class="btn-categoria btn-italiano">Explorar Pavilhão Italiano</a>
+                </div>
+            </article>
+
+            <!-- Pavilhão Alemão -->
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Alemã</h3>
+                    <p>Descubra o estabelecimento das colônias agrícolas no sul do país, a preservação de tradições, a arquitetura enxaimel e o impacto cultural.</p>
+                    <a href="#" class="btn-categoria btn-alemao">Explorar Pavilhão Alemão</a>
+                </div>
+            </article>
+
+            <!-- Pavilhão Polonês e Ucraniano -->
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Eslava (Poloneses e Ucranianos)</h3>
+                    <p>A saga dos imigrantes da Europa Oriental que colonizaram terras desafiadoras, trazendo consigo uma rica herança religiosa, musical e agrícola.</p>
+                    <a href="#" class="btn-categoria btn-eslavo">Explorar Pavilhão Eslavo</a>
+                </div>
+            </article>
+
+            <!-- Pavilhão Japonês -->
+            <article class="card">
+                <div class="card-conteudo">
+                    <h3>Imigração Japonesa</h3>
+                    <p>A partir do navio Kasato Maru em 1908, veja como a comunidade japonesa superou barreiras linguísticas e revolucionou a agricultura local.</p>
+                    <a href="#" class="btn-categoria btn-japones">Explorar Pavilhão Japonês</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <footer id="sobre">
+        <p>&copy; 2026 - Museu Virtual da Diáspora. Desenvolvido para fins educacionais com Comic Sans, Araucárias e Gralhas Lilás.</p>
+    </footer>
+
+</body>
+</html>
